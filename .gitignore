@@ -1,6 +1,7 @@
 
 # Django #
 websocketProject/__pycache__
+drf_api_logger
 *.log
 *.pot
 *.pyc

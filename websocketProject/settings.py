@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "daphne",
     "django.contrib.staticfiles",
     "websocketapp",
+    # 'drf_api_logger',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+
+    # 'drf_api_logger.middleware.api_logger_middleware.APILoggerMiddleware',
 ]
 
 ROOT_URLCONF = "websocketProject.urls"
@@ -79,11 +82,11 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [('127.0.0.1', 6370)],
+            # "hosts": [('redis://52.66.210.11', 6379)],
+            "hosts": [("redis://:elchemy123@52.66.210.11:6379")],
         },
     },
 }
-
 
 
 DATABASES = {
@@ -134,3 +137,6 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# DRF_API_LOGGER_DATABASE = True
